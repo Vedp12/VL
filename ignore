@@ -1,0 +1,135 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-12-08T01:35:01+05:30
+
+====== Git ======
+
+
+Git-Git is a distributed version control system that helps track changes in files or code over time. It is an open source software that is availabe for linux, mac and windows. It is a software that can be installed on your computer.
+
+
+=== git basic cmds ===
+
+git config --global user.email "example.com" - adding email in git
+git config --global user.name "user1"             -	adding name in git
+
+git config --list - It give all detail that are entered while signin
+
+git status  - It checks the status of git brach or commits or if any think change or not.
+
+.gitignore - It is a repo that create to ignore dirc from tracking of git. 
+
+=== Git status ===
+It checks the wokrin flow of git with "git status" command
+	-The status are 
+
+
+===== Git working flow =====
+{{../Gitworkflow.png}}
+
+.-> labels: (cmds and -files and their stage)
+->git init  -working dir  ->gitadd -staging area 	->git commit -repo	-> push -github
+
+git init    
+		 -It is initial a master name branch as default in git and it gives the hint of current cmd. And .git repo are installed in hidden folder and from now our git tracking are started 
+
+git add 
+		-It is use to add new dir and all working directory are goes to staging area.
+		syntax  	- git add filename  -> to add one file at a time ,
+					- git add .  ->To add all file from a repo 
+
+git commit 
+		-It save all our changes. 
+		syntax	- git commit -m 'commit msg' -> -m is standes for m
+git log 
+		-It displays all previous commits and their metadata
+git  log --oneline 
+		-It do the same thing as log but in clean way without metadeta
+
+
+
+===== Git Branches and Conflits =====
+
+== GIt Branch ==
+Branches- It is a way to work on different version of a project at the same time. It allow you to create seperate line of development that can work independently of the main branch. This can be useful when you want to make changes to a project without affecting the main branch.
+
+''git branch'' 
+		-It shows which branch you work on. Default is Master
+		
+''git branch BranchName''
+		-It adds new brach to work on.
+''git branch -M main''
+		-It is use to rename a branch
+git switch
+		- This cmd is used to switch between branches.
+			- syntax:    ''git switch BrannchName''
+''git switch -c BranchName''
+		- This cmd switch to another branch if that branch does not exist it create new branch with that name
+
+git checkout
+		- This is  to checkout if that branch does exist or not. If exist that it switch to that branch.
+			- syntax:   ''git checkout BranchName''
+
+git merge
+		-The merge cmd merge to child-branch to parent branch(master) in code.
+			syntax: ''git merge BranchName'' 
+
+
+== Git Conflit ==
+		-This is an error occured  when we try to merge sub branch with the main branch but they both have same edited file. When this error occured we can solve with manually 
+
+
+-Keep both changes (merge)
+-Keep one change and discard the other
+-Edit the conflicting sections to combine changes
+
+~Remove conflict markers: Delete the conflict markers (<<<<<<<, =======, >>>>>>>) and any surrounding whitespace.
+~Commit the resolved changes: Stage the updated file with git add <file> and commit the changes with git commit -m "Resolved conflict in <file>".
+~Repeat for all conflicting files: Resolve conflicts for each file with conflicting changes.
+~Verify the merge: After committing all resolved conflicts, run git status to ensure there are no remaining 
+conflicts.
+~Push the updated branch: Push the updated branch to the remote repository with git push.
+
+
+=== Git diff, stash and tag ===
+
+Git diff 
+	- It is an informative command that shows the difference between two commits. It  is used to compare the changes made in one commit with changes made in another commit. It is consider the changed version of same file as two different files.   
+	-Syntax : git diff  --staged 		-This give info of file before commit of what changes
+				 git diff Commmitid1..Commmitid2	-This   gives the changes between 2files  
+	
+git stash
+	- It is a way to save your change in temporary location. It is useful whrn you want to make changes to a file but don't but dont want to commit them yet.
+	-Syntax:	''git stash''
+				''git stash'' 				- It gives the list of all stash 
+				''git stash save name''	- We can give a particular name of our stash
+				''git stash pop			-It apply and drop stash''
+
+git tag
+	-Tag are a way to mark a specific point in your repo. This is useful when you want to remember a specific version of your code. 
+	-Syntax:   ''git tag tagname'' 					      -We can give name to our tag by it.
+						''git tag -a'' <tagname> ''-m'' <description> ''-'' It gives the description/message of our tag
+		  ''git tag		    	-It shows the list of our tag''
+				  ''git tag'' <tagname> <commitId>		    -It we can attach tag to our 
+
+
+
+====== GITHUB ======
+
+Github - Github is a web-based Git repo hosting service. It is popular plateform for developers to colloborate on project and share code. It provides a user-friendly interface for manage and tracking changes to your code. 
+
+
+git remote -v
+		-It is used to list all the remote repositories that are configured for your local Git repository, along with their URLs.
+
+git remote add origin <github url>
+		-It adds a new remote repository connection to your local Git repository. The origin name is a conventional use for the primary remote repository.
+
+git push -u origin main 
+		-It pushes the local branch named main to the remote repository named origin, and sets the upstream tracking information for the local branch .After applying this cmd it is automatically act as default
+
+git push
+	-Git Push is a command in Git that uploads local commits to a remote repository, making them available to others who have access to the repository.
+
+
+
